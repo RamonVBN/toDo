@@ -101,7 +101,9 @@ export const TaskItem = styled('div', {
         width: '1.5rem',
         height: '1.5rem',  
         boxSizing: 'border-box',
-        cursor: 'pointer'
+        cursor: 'pointer',
+
+        transition: '0.2s ease-out',
         
     },
 
@@ -110,6 +112,13 @@ export const TaskItem = styled('div', {
         width: '1.5rem',
         height: '1.5rem',   
         cursor: 'pointer', 
+
+        '&:hover': {
+            svg: {
+                color: '#D9D9D9',  
+            }
+        },
+
 
         svg: {
             color: '#808080'
@@ -139,6 +148,11 @@ export const TaskItem = styled('div', {
                     justifyContent: 'center',
                     alignItems: 'center',
                     color: '#F2F2F2',
+
+                    '&:hover': {
+                        backgroundColor: '#8284FA',
+                        border: '2px solid  #8284FA',
+                    },
      
                 },
 
@@ -149,6 +163,10 @@ export const TaskItem = styled('div', {
             false: {
                 'button:first-child': {
                     border: '2px solid  #4EA8DE',
+
+                    '&:hover': {
+                        backgroundColor: '#4EA8DE',
+                    },
                     
                     svg: {
                         visibility: 'hidden'
