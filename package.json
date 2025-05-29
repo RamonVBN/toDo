@@ -23,6 +23,7 @@
     "react-hook-form": "^7.56.3",
     "stitches": "^1.2.11",
     "tailwindcss": "^4.1.7",
+    "uuid": "^11.1.0",
     "zod": "^3.24.4"
   },
   "devDependencies": {

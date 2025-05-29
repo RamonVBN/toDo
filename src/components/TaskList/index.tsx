@@ -5,8 +5,8 @@ import type { TasksProps } from "../../App";
 type TaskListProps = {
 
     tasks: TasksProps[]
-    onRemoveTasks: (taskDescription: string) =>  void
-    onUpdateTasks: (taskDescription: string) =>  void
+    onRemoveTasks: (taskId: string) =>  void
+    onUpdateTasks: (taskId: string) =>  void
 }
 
 
@@ -46,13 +46,13 @@ export function TaskList({tasks, onRemoveTasks, onUpdateTasks}: TaskListProps) {
                             tasks.map((task, i) => {
                                 return (
                                 <TaskItem isComplete={task.isComplete} key={i} >
-                                    <button type="button" onClick={() => onUpdateTasks(task.description) }>
+                                    <button type="button" onClick={() => onUpdateTasks(task.id) }>
                                     {
                                         task.isComplete && <Check weight="bold" size={16} />
                                     }
                                     </button>
                                     <p>{task.description}</p>
-                                    <button type="button" onClick={() => onRemoveTasks(task.description)}>
+                                    <button type="button" onClick={() => onRemoveTasks(task.id)}>
                                         <Trash size={24} />
                                     </button>
                                 </TaskItem>
@@ -67,8 +67,6 @@ export function TaskList({tasks, onRemoveTasks, onUpdateTasks}: TaskListProps) {
                     Crie tarefas e organize seus itens a fazer</p>
                 </TaskListFallback>
                 }
-
-                
 
         </TaskListContainer>
     )

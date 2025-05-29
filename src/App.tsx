@@ -4,9 +4,11 @@ import { Header } from "./components/Header";
 import { TaskList } from "./components/TaskList";
 import { AppContainer } from "./styles";
 
+import { v4 as uuidv4 } from 'uuid';
 
 export type TasksProps = {
-  description: string,
+  id: string
+  description: string
   isComplete: boolean
 }
 
@@ -16,35 +18,34 @@ export function App() {
 
    function onAddTask(taskDecription: string){
 
-    const newTask: TasksProps = {description: taskDecription, isComplete: false}
+    const newTask: TasksProps = {id: uuidv4() ,description: taskDecription, isComplete: false}
 
     const tasksCompleted =  tasks.filter((task) => task.isComplete)
 
     const tasksIncompleted = tasks.filter((task) => !task.isComplete)
 
-    tasksIncompleted.unshift(newTask)
+    tasksIncompleted.push(newTask)
 
     setTasks([...tasksIncompleted, ...tasksCompleted])
 
   }
 
-  function onRemoveTasks(taskDecription: string){
+  function onRemoveTasks(taskId: string){
    
-
-    const indexToRemove = tasks.reverse().findIndex((task) => task.description === taskDecription)
+    const indexToRemove = tasks.findIndex((task) => task.id === taskId)
 
     if (indexToRemove !== -1) {
       
       const updatedTask = tasks.toSpliced(indexToRemove, 1)
 
-      setTasks(updatedTask)
+      return setTasks(updatedTask)
 
     }
   }
 
-  function onUpdateTasks(taskDecription: string){
+  function onUpdateTasks(taskId: string){
 
-    const indexToUpdate = tasks.findIndex((task) => task.description === taskDecription)
+    const indexToUpdate = tasks.findIndex((task) => task.id === taskId)
 
     if (indexToUpdate !== -1) {
       
