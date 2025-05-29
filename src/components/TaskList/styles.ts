@@ -10,9 +10,23 @@ export const TaskListContainer = styled('main', {
     gap: '1.5rem',
     paddingBottom: '2.5rem',
 
+    // height: '100%',
+    // overflow: 'scroll',
+    // scrollbarWidth: 'none',
+
+    maxHeight: '35.8125rem',
+    overflow: 'scroll',
+    scrollbarWidth: 'none',
+
     
     '@media(max-width: 800px)': {
+        maxHeight: '31.25rem',
+        paddingInline: '2rem'
+    },
 
+    
+    '@media(max-width: 1440px)': {
+        maxHeight: '33rem',
         paddingInline: '2rem'
     }
 })
